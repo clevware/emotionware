@@ -11,7 +11,7 @@ class Light():
     light = None
 
     #inti whit a id
-    def __init__(self,id="",serverURL="http://cleverhome.mybluemix.net",pin=17):
+    def __init__(self,id="",serverURL="http://cleverhome.mybluemix.net/light-brightness",pin=17):
         if(len(id)>0):
             self.id = id
         else:
