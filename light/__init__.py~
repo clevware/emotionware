@@ -35,20 +35,19 @@ class Light():
         )
         print res
         print "["+res.text+"]"
-        if(res.status_code==200):
-            res = json.loads(res.text)
+        res = json.loads(res.text)
 
-            if(res['value']>0):
-                self.light.on()
-            else:
-                self.light.off()
+        if(res['value']>0):
+            self.light.on()
+        else:
+            self.light.off()
 
 
 if(__name__=="__main__"):
-    try:
-          testone = Light(pin=17,serverURL="http://cleverhome.mybluemix.net/light-brightness",id="1")
+
+      testone = Light(pin=17,serverURL="http://cleverhome.mybluemix.net/light-brightness",id="1")
     
-          while True:
-              testone.getLightState()
-    except Exception,e:
-        print e
+      while True:
+          testone.getLightState()
+          time.sleep(3)
+
