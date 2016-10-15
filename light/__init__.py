@@ -44,13 +44,9 @@ class Light():
 
 if(__name__=="__main__"):
 
-    # testone = Light(id="1")
-    #
-    # while True:
-    #     testone.getLightState()
-    #     time.sleep(2)
+      testone = Light(pin=17,id="1")
+    
+      while True:
+          testone.getLightState()
+          time.sleep(3)
 
-    one = Light(pin=0,serverURL="http://10.221.64.169:8090/light-brightness",id="xlsd1996")
-    for i in range(20):
-        one.getLightState()
-        time.sleep(1)
