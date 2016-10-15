@@ -32,8 +32,8 @@ class Light():
             url=self.serverURL,
             data=data,
         )
-        print res
-        res = json.loads(res)
+        print res.text
+        res = json.loads(res.text)
 
         if(res['value']>0):
             self.light.on()
