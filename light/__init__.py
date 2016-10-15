@@ -38,10 +38,16 @@ class Light():
         if(res.status_code==200):
             res = json.loads(res.text)
 
-            if(res['value']>0):
-                self.light.on()
+            if(res["hasTokenPhoto"]==True):
+                if(res['happiness']>res['sadness']):
+                    self.light.on()
+                else:
+                    self.light.off()
             else:
-                self.light.off()
+                if(res['value']>0):
+                    self.light.on()
+                else:
+                    self.light.off()
 
 
 if(__name__=="__main__"):
