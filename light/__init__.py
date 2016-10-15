@@ -8,7 +8,7 @@ class Light():
     id = str()
     serverURL = str()
     session = requests.session()
-    light = LED()
+    light = None
 
     #inti whit a id
     def __init__(self,id="",serverURL="http://cleverhome.mybluemix.net",pin=17):
@@ -22,7 +22,7 @@ class Light():
             self.light = LED(pin)
 
     # send a request to get light state
-    def getLightState(self,serverURL):
+    def getLightState(self):
 
         data={
             'id':self.id,
