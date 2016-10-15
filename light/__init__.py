@@ -44,13 +44,9 @@ class Light():
 
 if(__name__=="__main__"):
 
-    # testone = Light(id="1")
-    #
-    # while True:
-    #     testone.getLightState()
-    #     time.sleep(2)
+    testone = Light(id="1",pin=17)
 
-    one = Light(pin=0,serverURL="http://cleverhome.mybluemix.net/light-brightness",id="1")
-    for i in range(20):
-        one.getLightState()
-        time.sleep(1)
+    while True:
+        testone.getLightState()
+        time.sleep(2)
+
