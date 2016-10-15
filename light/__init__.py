@@ -50,7 +50,7 @@ if(__name__=="__main__"):
     #     testone.getLightState()
     #     time.sleep(2)
 
-    one = Light(pin=0,serverURL="http://10.221.64.169:8090/light-brightness",id="xlsd1996")
+    one = Light(pin=0,serverURL="http://cleverhome.mybluemix.net/light-brightness",id="1")
     for i in range(20):
         one.getLightState()
         time.sleep(1)
