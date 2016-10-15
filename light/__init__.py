@@ -33,28 +33,20 @@ class Light():
             cookies=data,
 			data=data,
         )
-        print res
-        print "["+res.text+"]"
+        print res.status_code
+        print "[ "+res.text+" ]\n"
         if(res.status_code==200):
             res = json.loads(res.text)
-
-            if(res["hasTokenPhoto"]==True):
-                if(res['happiness']>res['sadness']):
-                    self.light.on()
-                else:
-                    self.light.off()
+            if(res['value']>0):
+				self.light.on()
             else:
-                if(res['value']>0):
-                    self.light.on()
-                else:
-                    self.light.off()
+                self.light.off()
 
 
 if(__name__=="__main__"):
-    try:
-          testone = Light(pin=17,id="1")
-    
-          while True:
-              testone.getLightState()
-    except Exception,e:
-        print e
+    testone = Light(pin=17,id="1")
+    while True:
+        try:
+            testone.getLightState()
+        except Exception,e:
+            print e
