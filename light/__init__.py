@@ -43,7 +43,7 @@ class Light():
 
 if(__name__=="__main__"):
 
-    testone = Light()
+    testone = Light(id="1")
 
     while True:
         testone.getLightState()
