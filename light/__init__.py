@@ -32,6 +32,7 @@ class Light():
             url=self.serverURL,
             data=data,
         )
+        print res
         res = json.loads(res)
 
         if(res['value']>0):
