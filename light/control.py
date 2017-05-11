@@ -1,8 +1,8 @@
 # coding=utf-8
-from query import getDeviceData,getBlubData,getSpeakerData
+from query import getDeviceData,getBlubData,getSpeakerData,getMessage
 import time
 import RPi.GPIO as GPIO
-
+import os
 
 USING_PIN = 11
 
@@ -11,7 +11,8 @@ def changeDutyTo(p,val):
         p.ChangeDutyCycle(val)
         print "Change Bulb-value to [%d]" % val
 
-
+def espeak(message):
+    os.system("espeak '%s" % message)
 
 
 if(__name__=="__main__"):
@@ -27,3 +28,8 @@ if(__name__=="__main__"):
         time.sleep(1)
         res = getDeviceData()
         changeDutyTo(p,getBlubData(res))
+
+
+        message = getMessage()
+        if(len(message)>0):
+            espeak(message)
