@@ -11,7 +11,7 @@ class Light():
     light = None
 
     #inti whit a id
-    def __init__(self,id="",serverURL="http://cleverhome.mybluemix.net/light-brightness",pin=17):
+    def __init__(self,id="",serverURL="http://clevho.mybluemix.net/light-brightness",pin=17):
         if(len(id)>0):
             self.id = id
         else:
@@ -33,21 +33,22 @@ class Light():
             cookies=data,
 			data=data,
         )
-        print res
-        print "["+res.text+"]"
-        res = json.loads(res.text)
-
-        if(res['value']>0):
-            self.light.on()
-        else:
-            self.light.off()
+        print res.status_code
+        print "[ "+res.text+" ]\n"
+        if(res.status_code==200):
+            res = json.loads(res.text)
+            if(res['value']>0):
+				self.light.on()
+            else:
+                self.light.off()
+            if("hasTokenPhoto" in res):
+				print "\nasdalksnvakjbvs\n"
 
 
 if(__name__=="__main__"):
-
-      testone = Light(pin=17,serverURL="http://cleverhome.mybluemix.net/light-brightness",id="1")
-    
-      while True:
-          testone.getLightState()
-          time.sleep(3)
-
+    testone = Light(pin=17,id="1")
+    while True:
+        try:
+            testone.getLightState()
+        except Exception,e:
+            print e
