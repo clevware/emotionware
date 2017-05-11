@@ -31,14 +31,14 @@ class Light():
         res=self.session.post(
             url=self.serverURL,
             cookies=data,
-			data=data,
+            data=data,
         )
         print res.status_code
         print "[ "+res.text+" ]\n"
         if(res.status_code==200):
             res = json.loads(res.text)
             if(res['value']>0):
-				self.light.on()
+                self.light.on()
             else:
                 self.light.off()
 
