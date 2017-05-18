@@ -20,7 +20,7 @@ def music_pause():
 
 def music_play(name):
     music_pause()
-    os.system("mplayer %s" % (MP3_DIRECTORY+name))
+    os.system("mplayer '%s'&" % (MP3_DIRECTORY+name))
 
 def music_next():
     mp3_list = getMP3List()
