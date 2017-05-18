@@ -24,7 +24,7 @@ def music_play(name):
 
 def music_next():
     mp3_list = getMP3List()
-    choose = random.randint(len(mp3_list))
+    choose = random.randint(0,len(mp3_list))
     music_play(mp3_list[choose])
 
 
