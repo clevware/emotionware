@@ -1,7 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 
-USING_PIN = 12
+USING_PIN = 17
 
 
 GPIO.setmode(GPIO.BOARD)

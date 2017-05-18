@@ -4,7 +4,7 @@ from time import sleep
 
 
 if(__name__=="__main__"):
-    led = LED(17)
+    led = LED(18)
 
     while True:
         led.on()
