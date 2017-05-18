@@ -17,9 +17,12 @@ if(__name__=="__main__"):
     while(True):
         time.sleep(1)
         res = getDeviceData()
-        changeDutyTo(p,getBlubData(res))
+        brightness = int(getBlubData(res))
+        print "Bulb state:",brightness
+        changeDutyTo(p,brightness)
 
 
         message = getMessage()
         if(len(message)>0):
+            print "New Message:",message
             espeak(message)

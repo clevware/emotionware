@@ -26,9 +26,10 @@ def getMessage():
 
 if(__name__=="__main__"):
     import time
-    res = getDeviceData()
+
     while(True):
+        res = getDeviceData()
         time.sleep(1)
-        print getBlubData(res)
-        print getSpeakerData(res)
+        print "Bulb state:",getBlubData(res)
+        print "Message:",getSpeakerData(res)
         print getMessage()
