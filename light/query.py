@@ -18,14 +18,17 @@ def getSpeakerData(device_json):
 
 def getMessage():
     res = requests.get("http://wzhere.cn:7036/get_message")
-    res_json = json.loads(res)
+    res_json = json.loads(res.text)
     if(res_json['flag']==1):
         return res_json['message']
     else:
         return ''
 
 if(__name__=="__main__"):
+    import time
     res = getDeviceData()
-
-    print getBlubData(res)
-    print getSpeakerData(res)
+    while(True):
+        time.sleep(1)
+        print getBlubData(res)
+        print getSpeakerData(res)
+        print getMessage()
