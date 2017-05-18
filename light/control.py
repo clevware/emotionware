@@ -12,7 +12,7 @@ def changeDutyTo(p,val):
         print "Change Bulb-value to [%d]" % val
 
 def espeak(message):
-    os.system("espeak '%s" % message)
+    os.system("espeak '%s'" % message)
 
 
 if(__name__=="__main__"):
